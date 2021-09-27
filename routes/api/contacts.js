@@ -5,7 +5,6 @@ const { contactSchema } = require('../../schemas')
 
 router.get('/', async (req, res, next) => {
   try {
-    // console.log('req', req.body)
     const contacts = await contactsOperations.listContacts()
     res.json({
       status: 'success',

@@ -1,9 +1,5 @@
-// const fs = require('fs/promises')
-// const path = require('path')
 const updateContacts = require('./updateContacts')
 const listContacts = require('./listContacts')
-
-// const filePath = path.join(__dirname, './contacts.json')
 
 const updateContactsById = async (id, newContact) => {
   const contacts = await listContacts()
