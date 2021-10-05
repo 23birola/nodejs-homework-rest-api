@@ -2,7 +2,7 @@ const express = require('express')
 
 const { userJoiSchema } = require('../../models/users')
 const { controllerWrapper, validation, authenticate } = require('../../middlewares')
-const { auth: ctrl } = require('../../controllers/auth')
+const { auth: ctrl } = require('../../controllers')
 
 const router = express.Router()
 
@@ -17,9 +17,9 @@ router.post('/register', validation(userJoiSchema), controllerWrapper(ctrl.regis
 // router.post("/signup")
 
 router.post('/login', validation(userJoiSchema), controllerWrapper(ctrl.login))
-// router.post("/signin")
+// // router.post("/signin")
 
 router.get('/logout', authenticate, controllerWrapper(ctrl.logout))
-// router.get("/signuot")
+// // router.get("/signuot")
 
 module.exports = router
