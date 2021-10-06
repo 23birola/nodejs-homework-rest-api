@@ -13,13 +13,15 @@ const router = express.Router()
 4. Выход (Logout).
 */
 // api/auth/register
-router.post('/register', validation(userJoiSchema), controllerWrapper(ctrl.register))
+router.post('/users/register', validation(userJoiSchema), controllerWrapper(ctrl.register))
 // router.post("/signup")
 
-router.post('/login', validation(userJoiSchema), controllerWrapper(ctrl.login))
+router.post('/users/login', validation(userJoiSchema), controllerWrapper(ctrl.login))
 // // router.post("/signin")
 
-router.get('/logout', authenticate, controllerWrapper(ctrl.logout))
+router.get('/users/logout', authenticate, controllerWrapper(ctrl.logout))
 // // router.get("/signuot")
+
+router.get('/users/current', authenticate, controllerWrapper(ctrl.getCurrentUser))
 
 module.exports = router

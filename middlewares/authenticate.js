@@ -15,7 +15,7 @@ const authenticate = async(req, res, next) => {
     return
   }
 
-  const [bearer, token] = authorization.split('')
+  const [bearer, token] = authorization.split(' ')
   if (bearer !== 'Bearer') {
     res.status(401).json({
       status: 'error',
