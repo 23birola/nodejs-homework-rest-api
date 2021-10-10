@@ -1,4 +1,4 @@
-const { sendSuccessRes } = require('../helpers')
+const { sendSuccessRes, resizeImage } = require('../helpers')
 const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const { SECRET_KEY } = process.env
@@ -9,6 +9,7 @@ const avatarsDir = path.join(__dirname, '../', 'public/avatars')
 
 const changeAvatar = async (req, res) => {
   const { path: tempStorage, originalname } = req.file
+  await resizeImage(`${tempStorage}`)
   try {
     const { authorization } = req.headers
     const [bearer, token] = authorization.split(' ')
