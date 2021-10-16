@@ -16,6 +16,8 @@ const router = express.Router()
 router.post('/users/register', validation(userJoiSchema), controllerWrapper(ctrl.register))
 // router.post("/signup")
 
+router.get('/users/verify/:verifyToken', controllerWrapper(ctrl.verifyUser))
+
 router.post('/users/login', validation(userJoiSchema), controllerWrapper(ctrl.login))
 // // router.post("/signin")
 
